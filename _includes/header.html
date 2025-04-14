@@ -1,0 +1,25 @@
+
+<header class="sticky top-0 z-50 backdrop-blur-lg border-b border-white/10">
+  <nav class="container mx-auto px-4 py-4">
+    <div class="flex items-center justify-between">
+      <a href="{{ '/' | relative_url }}" class="flex items-center space-x-2">
+        <span class="text-2xl font-bold glitch" data-text="SecLearnOld">SecLearnOld</span>
+      </a>
+      
+      <div class="hidden md:flex items-center space-x-6">
+        <a href="{{ '/blog' | relative_url }}" class="text-white hover:text-primary transition-colors">Blog</a>
+        <a href="{{ '/machines' | relative_url }}" class="text-white hover:text-primary transition-colors">Máquinas</a>
+        <a href="{{ '/about' | relative_url }}" class="text-white hover:text-primary transition-colors">Sobre</a>
+      </div>
+      
+      <div class="flex items-center space-x-4">
+        <a href="https://github.com/seu-usuario" target="_blank" rel="noopener noreferrer" class="text-white hover:text-primary">
+          {% include icons/github.html %}
+        </a>
+        <a href="https://linkedin.com/in/seu-perfil" target="_blank" rel="noopener noreferrer" class="text-white hover:text-primary">
+          {% include icons/linkedin.html %}
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>

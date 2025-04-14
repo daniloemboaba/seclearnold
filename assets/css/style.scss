@@ -1,0 +1,158 @@
+
+---
+---
+
+// Variables
+$primary: #ff0000;
+$secondary: #800000;
+$background: #0a0a0a;
+$text: #ffffff;
+$text-muted: #888888;
+$card-bg: rgba(20, 20, 20, 0.7);
+$border-color: rgba(255, 0, 0, 0.2);
+
+// Base styles
+body {
+  background-color: $background;
+  color: $text;
+  font-family: 'JetBrains Mono', monospace;
+  line-height: 1.6;
+  margin: 0;
+  min-height: 100vh;
+}
+
+// Typography
+.glitch-text {
+  position: relative;
+  font-size: 3rem;
+  font-weight: bold;
+  color: $text;
+  text-shadow: 
+    0.05em 0 0 rgba(255,0,0,0.75),
+    -0.025em -0.05em 0 rgba(0,255,0,0.75),
+    0.025em 0.05em 0 rgba(0,0,255,0.75);
+  animation: glitch 500ms infinite;
+}
+
+// Layout
+.home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.hero-section {
+  text-align: center;
+  margin-bottom: 4rem;
+  
+  .avatar-container {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 2rem;
+    
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 2px solid $primary;
+    }
+  }
+  
+  .subtitle {
+    color: $text-muted;
+    font-size: 1.2rem;
+  }
+}
+
+// Grid
+.posts-grid {
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+}
+
+// Cards
+.post-card {
+  background: $card-bg;
+  border: 1px solid $border-color;
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-5px);
+    border-color: $primary;
+    box-shadow: 0 0 20px rgba($primary, 0.2);
+  }
+  
+  .post-card-header {
+    margin-bottom: 1rem;
+  }
+  
+  .post-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: $text-muted;
+  }
+  
+  .post-title {
+    font-size: 1.5rem;
+    margin: 0;
+    color: $text;
+  }
+  
+  .post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    
+    .tag {
+      background: rgba($primary, 0.1);
+      color: $primary;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.8rem;
+    }
+  }
+  
+  .read-more {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: $primary;
+    text-decoration: none;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Difficulty badges
+.difficulty {
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  
+  &.easy { background: rgba(0, 255, 0, 0.2); color: #00ff00; }
+  &.medium { background: rgba(255, 165, 0, 0.2); color: #ffa500; }
+  &.hard { background: rgba(255, 0, 0, 0.2); color: #ff0000; }
+}
+
+// Animations
+@keyframes glitch {
+  0% { text-shadow: 0.05em 0 0 rgba(255,0,0,0.75), -0.025em -0.05em 0 rgba(0,255,0,0.75), 0.025em 0.05em 0 rgba(0,0,255,0.75); }
+  14% { text-shadow: 0.05em 0 0 rgba(255,0,0,0.75), -0.025em -0.05em 0 rgba(0,255,0,0.75), 0.025em 0.05em 0 rgba(0,0,255,0.75); }
+  15% { text-shadow: -0.05em -0.025em 0 rgba(255,0,0,0.75), 0.025em 0.025em 0 rgba(0,255,0,0.75), -0.05em -0.05em 0 rgba(0,0,255,0.75); }
+  49% { text-shadow: -0.05em -0.025em 0 rgba(255,0,0,0.75), 0.025em 0.025em 0 rgba(0,255,0,0.75), -0.05em -0.05em 0 rgba(0,0,255,0.75); }
+  50% { text-shadow: 0.025em 0.05em 0 rgba(255,0,0,0.75), 0.05em 0 0 rgba(0,255,0,0.75), 0 -0.05em 0 rgba(0,0,255,0.75); }
+  99% { text-shadow: 0.025em 0.05em 0 rgba(255,0,0,0.75), 0.05em 0 0 rgba(0,255,0,0.75), 0 -0.05em 0 rgba(0,0,255,0.75); }
+  100% { text-shadow: -0.025em 0 0 rgba(255,0,0,0.75), -0.025em -0.025em 0 rgba(0,255,0,0.75), -0.025em -0.05em 0 rgba(0,0,255,0.75); }
+}

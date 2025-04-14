@@ -1,0 +1,209 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 193 48% 8%;
+    --foreground: 0 0% 100%;
+    --card: 193 48% 8%;
+    --card-foreground: 0 0% 100%;
+    --popover: 193 48% 8%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 166 57% 57%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 156 100% 69%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 0 0% 69%;
+    --accent: 166 57% 57%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 166 57% 57%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+.glass-effect {
+  @apply bg-black/20 backdrop-blur-lg border border-white/10;
+}
+
+.text-gradient {
+  @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+}
+
+.neon-text {
+  text-shadow: 
+    0 0 5px theme('colors.primary.DEFAULT'),
+    0 0 10px theme('colors.primary.DEFAULT'),
+    0 0 20px theme('colors.primary.DEFAULT');
+}
+
+.neon-border {
+  box-shadow: 
+    0 0 5px theme('colors.primary.DEFAULT'),
+    0 0 10px theme('colors.primary.DEFAULT'),
+    inset 0 0 5px theme('colors.primary.DEFAULT');
+  border-color: theme('colors.primary.DEFAULT');
+}
+
+.glitch {
+  position: relative;
+  
+  &::before,
+  &::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &::before {
+    left: 2px;
+    text-shadow: -2px 0 theme('colors.primary.DEFAULT');
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+  }
+
+  &::after {
+    left: -2px;
+    text-shadow: -2px 0 theme('colors.secondary.DEFAULT');
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim2 5s infinite linear alternate-reverse;
+  }
+}
+
+@keyframes glitch-anim {
+  0% { clip: rect(31px, 9999px, 94px, 0); }
+  4.166666666666666% { clip: rect(91px, 9999px, 43px, 0); }
+  8.333333333333332% { clip: rect(85px, 9999px, 41px, 0); }
+  12.5% { clip: rect(147px, 9999px, 120px, 0); }
+  16.666666666666664% { clip: rect(83px, 9999px, 40px, 0); }
+  20.833333333333336% { clip: rect(46px, 9999px, 78px, 0); }
+  25% { clip: rect(142px, 9999px, 140px, 0); }
+  29.166666666666668% { clip: rect(13px, 9999px, 100px, 0); }
+  33.33333333333333% { clip: rect(128px, 9999px, 74px, 0); }
+  37.5% { clip: rect(110px, 9999px, 89px, 0); }
+  41.66666666666667% { clip: rect(56px, 9999px, 137px, 0); }
+  45.83333333333333% { clip: rect(133px, 9999px, 107px, 0); }
+  50% { clip: rect(59px, 9999px, 140px, 0); }
+  54.166666666666664% { clip: rect(10px, 9999px, 29px, 0); }
+  58.333333333333336% { clip: rect(137px, 9999px, 123px, 0); }
+  62.5% { clip: rect(48px, 9999px, 145px, 0); }
+  66.66666666666666% { clip: rect(95px, 9999px, 43px, 0); }
+  70.83333333333334% { clip: rect(140px, 9999px, 58px, 0); }
+  75% { clip: rect(115px, 9999px, 62px, 0); }
+  79.16666666666666% { clip: rect(32px, 9999px, 127px, 0); }
+  83.33333333333334% { clip: rect(12px, 9999px, 62px, 0); }
+  87.5% { clip: rect(141px, 9999px, 83px, 0); }
+  91.66666666666666% { clip: rect(148px, 9999px, 144px, 0); }
+  95.83333333333334% { clip: rect(92px, 9999px, 140px, 0); }
+  100% { clip: rect(147px, 9999px, 44px, 0); }
+}
+
+@keyframes glitch-anim2 {
+  6.666666666666667% { clip: rect(129px, 9999px, 36px, 0); }
+  10% { clip: rect(36px, 9999px, 4px, 0); }
+  13.333333333333334% { clip: rect(85px, 9999px, 66px, 0); }
+  16.666666666666664% { clip: rect(4px, 9999px, 69px, 0); }
+  20% { clip: rect(92px, 9999px, 158px, 0); }
+  23.333333333333332% { clip: rect(91px, 9999px, 182px, 0); }
+  26.666666666666668% { clip: rect(189px, 9999px, 55px, 0); }
+  30% { clip: rect(189px, 9999px, 144px, 0); }
+  33.33333333333333% { clip: rect(177px, 9999px, 145px, 0); }
+  36.666666666666664% { clip: rect(200px, 9999px, 105px, 0); }
+  40% { clip: rect(178px, 9999px, 115px, 0); }
+  43.333333333333336% { clip: rect(90px, 9999px, 147px, 0); }
+  46.666666666666664% { clip: rect(76px, 9999px, 80px, 0); }
+  50% { clip: rect(48px, 9999px, 107px, 0); }
+  53.333333333333336% { clip: rect(122px, 9999px, 54px, 0); }
+  56.666666666666664% { clip: rect(164px, 9999px, 166px, 0); }
+  60% { clip: rect(64px, 9999px, 45px, 0); }
+  63.33333333333333% { clip: rect(175px, 9999px, 199px, 0); }
+  66.66666666666666% { clip: rect(86px, 9999px, 177px, 0); }
+  70% { clip: rect(8px, 9999px, 183px, 0); }
+  73.33333333333333% { clip: rect(145px, 9999px, 7px, 0); }
+  76.66666666666667% { clip: rect(156px, 9999px, 121px, 0); }
+  80% { clip: rect(151px, 9999px, 197px, 0); }
+  83.33333333333334% { clip: rect(139px, 9999px, 42px, 0); }
+  86.66666666666667% { clip: rect(199px, 9999px, 140px, 0); }
+  90% { clip: rect(43px, 9999px, 160px, 0); }
+  93.33333333333333% { clip: rect(167px, 9999px, 79px, 0); }
+  96.66666666666667% { clip: rect(136px, 9999px, 199px, 0); }
+  100% { clip: rect(183px, 9999px, 163px, 0); }
+}
+
+.card-hover {
+  @apply border border-white/10 transition-all duration-300;
+  
+  &:hover {
+    @apply border-primary/50 transform -translate-y-1;
+    box-shadow: 
+      0 0 20px theme('colors.primary.DEFAULT'),
+      inset 0 0 10px theme('colors.primary.DEFAULT');
+  }
+}
+
+.social-icon {
+  @apply text-muted-foreground hover:text-primary transition-colors duration-300;
+}
+
+.prose {
+  @apply text-foreground;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+  @apply text-foreground font-bold my-6;
+}
+
+.prose h1 {
+  @apply text-4xl;
+}
+
+.prose h2 {
+  @apply text-3xl mt-12 mb-6;
+}
+
+.prose h3 {
+  @apply text-2xl mt-8 mb-4;
+}
+
+.prose p {
+  @apply text-lg leading-relaxed mb-6 text-muted-foreground;
+}
+
+.prose .lead {
+  @apply text-xl text-foreground font-medium mb-8;
+}
+
+.prose ul {
+  @apply list-disc list-inside space-y-2 mb-6 text-muted-foreground;
+}
+
+.prose pre {
+  @apply my-6 p-4 rounded-lg bg-secondary/50 overflow-x-auto text-sm font-mono;
+}
+
+.prose-container {
+  @apply max-w-4xl mx-auto px-4;
+}
+
+.prose img {
+  @apply rounded-lg my-8 mx-auto;
+}

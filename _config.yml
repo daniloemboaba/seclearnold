@@ -1,0 +1,52 @@
+
+title: SecLearnOld
+description: Portal de publicações técnicas e write-ups de cibersegurança
+baseurl: ""
+url: "https://seclearnold.github.io"
+
+# Build settings
+markdown: kramdown
+permalink: /:title/
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Theme settings
+theme_settings:
+  # Colors
+  primary_color: "#52D1B2"
+  secondary_color: "#5FFFA4"
+  background_color: "#0D1A1F"
+  text_color: "#FFFFFF"
+  text_secondary: "#B0B0B0"
+
+# Collections
+collections:
+  machines:
+    output: true
+    permalink: /machines/:path/
+
+# Default front matter
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  - scope:
+      path: ""
+      type: "machines"
+    values:
+      layout: "machine"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+# Exclude from processing
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - .git
